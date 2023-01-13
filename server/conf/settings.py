@@ -33,7 +33,7 @@ from evennia.settings_default import *
 
 # This is the name of your game. Make it catchy!
 SERVERNAME = "Sagas Universal"
-VERSION = "0.0.1"
+VERSION = "0.0.2"
 
 ######################################################################
 # Settings given in secret_settings.py override those in this file.
