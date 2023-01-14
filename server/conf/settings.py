@@ -108,6 +108,9 @@ AUTO_CREATE_CHARACTER_WITH_ACCOUNT = False
 AUTO_PUPPET_ON_LOGIN = False
 # Discord integration support
 DISCORD_ENABLED = True
+# Local time zone for this installation. All choices can be found here:
+# http://www.postgresql.org/docs/8.0/interactive/datetime-keywords.html#DATETIME-TIMEZONE-SET-TABLE
+TIME_ZONE = "EST"
 
 # Connection Stuffs
 
