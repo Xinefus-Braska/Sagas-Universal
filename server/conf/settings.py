@@ -128,3 +128,24 @@ SERVER_HOSTNAME = "mud.morchronium.com"
 # XYZGrid stuffs
 EXTRA_LAUNCHER_COMMANDS['xyzgrid'] = 'evennia.contrib.grid.xyzgrid.launchcmd.xyzcommand'
 PROTOTYPE_MODULES += ['evennia.contrib.grid.xyzgrid.prototypes']
+
+# Evennia Game Index
+GAME_INDEX_ENABLED = True 
+
+GAME_INDEX_LISTING = {
+    # required 
+    'game_status': 'pre-alpha',            # pre-alpha, alpha, beta, launched
+    'listing_contact': "hahnhell@gmail.com",  # not publicly shown.
+    'short_description': 'Grind your Power to the top!',    
+
+    # optional 
+    'long_description':
+        "Play and live like one of your favourite manga/anime characters! Power-up \n"
+        "and become the strongest in the Universe in whatever way you like! Be your \n"
+        "favourite hero or pick and chose something unique!",
+    'telnet_hostname': '',            
+    'telnet_port': '',                     
+    'web_client_url': '',   
+    'game_website': 'http://mud.morchronium.com:7003/',
+    # 'game_name': 'MyGame',  # set only if different than settings.SERVERNAME
+}
