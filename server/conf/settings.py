@@ -121,3 +121,7 @@ ALLOWED_HOSTS = [".morchronium.com"]
 # visible location. This is used e.g. on the web site to show how you connect to the
 # game over telnet. Default is localhost (only on your machine).
 SERVER_HOSTNAME = "mud.morchronium.com"
+
+# XYZGrid stuffs
+EXTRA_LAUNCHER_COMMANDS['xyzgrid'] = 'evennia.contrib.grid.xyzgrid.launchcmd.xyzcommand'
+PROTOTYPE_MODULES += ['evennia.contrib.grid.xyzgrid.prototypes']
