@@ -10,8 +10,8 @@ creation commands.
 from evennia.objects.objects import DefaultCharacter
 
 from .objects import ObjectParent
-import random 
-
+from evennia.utils import lazy_property
+from evennia.contrib.rpg.traits import TraitHandler
 
 class Character(ObjectParent, DefaultCharacter):
     """
@@ -33,20 +33,40 @@ class Character(ObjectParent, DefaultCharacter):
     at_post_puppet - Echoes "AccountName has entered the game" to the room.
 
     """
-    # When we create the character, it will randomly give STR, DEX, and INT
-    # between 3-18.
-    def at_object_creation(self):       
-        self.db.strength = random.randint(3, 18)
-        self.db.dexterity = random.randint(3, 18)
-        self.db.intelligence = random.randint(3, 18)
+    """
+    This is also the generic Playable character class. Everyone that creates a 
+    player will have these attributes.
+    """
+    
+    @lazy_property
+    def traits(self):
+        # this adds the handler as .traits
+        return TraitHandler(self, db_attribute_key="traits")
+    
+    @lazy_property
+    def stats(self):
+        # this adds the handler as .stats
+        return TraitHandler(self, db_attribute_key="stats")
 
-    # function to check stats... 
-    def get_stats(self):
-        """
-        Get the main stats of characters
-        """
-        # This returns in the form of a tuple: ( a, b, c, ...)
-        return self.db.strength, self.db.dexterity, self.db.intelligence
+    @lazy_property
+    def skills(self):
+        # this adds the handler as .skills
+        return TraitHandler(self, db_attribute_key="skills")
+
+    def at_object_creation(self):
+
+        self.traits.add( "hp", "Health", trait_type="counter", base=0, mod=0, rate=1, ratetarget=100 )
+        self.traits.add( "hp_base", "HealthBase", trait_type="static", base=100, mod=0 )
+        self.traits.add( "lf", "Lifeforce", trait_type="counter", base=1000, mod=0, rate=10 )
+        self.traits.add( "lf_base", "LifeforceBase", trait_type="static", base=1000, mod=0 )
+        self.stats.add( "str", "Strength", trait_type="static", base=10, max=100, mod=0 )
+        self.stats.add( "str_base", "StrengthBase", trait_type="static", base=10, max=100, mod=0 )
+        self.stats.add( "dex", "Dexterity", trait_type="static", base=10, max=100, mod=0 )
+        self.stats.add( "dex_base", "DexterityBase", trait_type="static", base=10, max=100, mod=0 )
+        self.stats.add( "int", "Intelligence", trait_type="static", base=10, max=100, mod=0 )
+        self.stats.add( "int_base", "IntelligenceBase", trait_type="static", base=10, max=100, mod=0 )
+        self.traits.add( "level", "Level", trait_type="static", base=1, max=100, mod=0 )
+        self.stats.add( "limit", "Limit", trait_type="static", base=0, max=1000, mod=0 )
 
     def at_pre_move(self, destination, **kwargs):
        """
@@ -54,8 +74,20 @@ class Character(ObjectParent, DefaultCharacter):
        False, the move is immediately cancelled.
        """
        if self.db.is_sitting:
-           self.msg("You need to stand up first.")
+           self.msg( "You need to stand up first." )
            return False
        return True
 
     pass
+
+class NonPlayerCharacter(DefaultCharacter):
+    """
+    The generic NPC, such as shopkeepers, trainers, etc.
+    Inherits the DefaultCharacter class, without any of the Character attributes.
+    """
+
+class MobCharacter(Character):
+    """
+    Everything you can grind and kill to level up!
+    Inherits the Character class so that we can use all of their attributes. 
+    """

@@ -17,14 +17,15 @@ connect to your server to get the latest info. No further configuration is
 needed on the Evennia side.
 
 """
+import settings
 
 MSSPTable = {
     # Required fields
-    "NAME": "Sagas Universal",  # usually the same as SERVERNAME
+    "NAME": settings.SERVERNAME, #"Sagas Universal",  # usually the same as SERVERNAME
     # Generic
     "CRAWL DELAY": "-1",  # limit how often crawler may update the listing. -1 for no limit
-    "HOSTNAME": "mud.morchronium.com",  # telnet hostname
-    "PORT": ["7002"],  # telnet port - most important port should be *last* in list!
+    "HOSTNAME": settings.SERVER_HOSTNAME, # "mud.morchronium.com",  # telnet hostname
+    "PORT": [settings.TELNET_PORTS], # ["7002"],  # telnet port - most important port should be *last* in list!
     "CODEBASE": "Evennia",
     "CONTACT": "hahnhell@gmail.com",  # email for contacting the mud
     "CREATED": "2023",  # year MUD was created
