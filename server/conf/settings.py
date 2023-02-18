@@ -108,6 +108,9 @@ AUTO_CREATE_CHARACTER_WITH_ACCOUNT = False
 AUTO_PUPPET_ON_LOGIN = False
 # Discord integration support
 DISCORD_ENABLED = True
+# Local time zone for this installation. All choices can be found here:
+# http://www.postgresql.org/docs/8.0/interactive/datetime-keywords.html#DATETIME-TIMEZONE-SET-TABLE
+TIME_ZONE = "EST"
 
 # Connection Stuffs
 
@@ -116,7 +119,7 @@ NEW_ACCOUNT_REGISTRATION_ENABLED = False
 # This is a security setting protecting against host poisoning
 # attacks.  It defaults to allowing all. In production, make
 # sure to change this to your actual host addresses/IPs.
-ALLOWED_HOSTS = [".morchronium.com"]
+ALLOWED_HOSTS = ["*"]
 # The url address to your server, like mymudgame.com. This should be the publicly
 # visible location. This is used e.g. on the web site to show how you connect to the
 # game over telnet. Default is localhost (only on your machine).
@@ -125,3 +128,24 @@ SERVER_HOSTNAME = "mud.morchronium.com"
 # XYZGrid stuffs
 EXTRA_LAUNCHER_COMMANDS['xyzgrid'] = 'evennia.contrib.grid.xyzgrid.launchcmd.xyzcommand'
 PROTOTYPE_MODULES += ['evennia.contrib.grid.xyzgrid.prototypes']
+
+# Evennia Game Index
+GAME_INDEX_ENABLED = True 
+
+GAME_INDEX_LISTING = {
+    # required 
+    'game_status': 'pre-alpha',            # pre-alpha, alpha, beta, launched
+    'listing_contact': "hahnhell@gmail.com",  # not publicly shown.
+    'short_description': 'Grind your Power to the top!',    
+
+    # optional 
+    'long_description':
+        "Play and live like one of your favourite manga/anime characters! Power-up \n"
+        "and become the strongest in the Universe in whatever way you like! Be your \n"
+        "favourite hero or pick and chose something unique!",
+    'telnet_hostname': '',            
+    'telnet_port': '',                     
+    'web_client_url': '',   
+    'game_website': 'http://mud.morchronium.com:7003/',
+    # 'game_name': 'MyGame',  # set only if different than settings.SERVERNAME
+}
