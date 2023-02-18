@@ -55,10 +55,10 @@ class Character(ObjectParent, DefaultCharacter):
 
     def at_object_creation(self):
 
-        self.traits.add( "hp", "Health", trait_type="counter", base=0, mod=0, rate=1, ratetarget=100 )
+        self.traits.add( "hp", "Health", trait_type="counter", base=0, mod=0 )
         self.traits.add( "hp_base", "HealthBase", trait_type="static", base=100, mod=0 )
-        self.traits.add( "lf", "Lifeforce", trait_type="counter", base=1000, mod=0, rate=10 )
         self.traits.add( "lf_base", "LifeforceBase", trait_type="static", base=1000, mod=0 )
+        self.traits.add( "lf", "Lifeforce", trait_type="counter", base=0, max=1000000000000, mod=0 )
         self.stats.add( "str", "Strength", trait_type="static", base=10, max=100, mod=0 )
         self.stats.add( "str_base", "StrengthBase", trait_type="static", base=10, max=100, mod=0 )
         self.stats.add( "dex", "Dexterity", trait_type="static", base=10, max=100, mod=0 )

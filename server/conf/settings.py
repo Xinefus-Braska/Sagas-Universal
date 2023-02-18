@@ -119,7 +119,7 @@ NEW_ACCOUNT_REGISTRATION_ENABLED = False
 # This is a security setting protecting against host poisoning
 # attacks.  It defaults to allowing all. In production, make
 # sure to change this to your actual host addresses/IPs.
-ALLOWED_HOSTS = [".morchronium.com"]
+ALLOWED_HOSTS = ["*"]
 # The url address to your server, like mymudgame.com. This should be the publicly
 # visible location. This is used e.g. on the web site to show how you connect to the
 # game over telnet. Default is localhost (only on your machine).
