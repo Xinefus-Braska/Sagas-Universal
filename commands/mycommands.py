@@ -85,12 +85,11 @@ class CmdScore(Command):
                         3: "Something",
                         4: target.permissions,
                         5: int(target.traits.level.value),
-                        6: int(target.traits.hp.current),
-                        7: int(target.traits.hp_base.value),
-                        8: int(target.traits.lf.current),
-                        9: int(target.traits.lf_base.value),
-                        10: int(target.stats.limit.value),
-                        11: int(target.stats.limit.max)},
+                        6: int(target.traits.lf.current),
+                        7: int(target.traits.lf_base.value),
+                        #8: int(target.stats.limit.value),
+                        #9: int(target.stats.limit.max)
+                        },
                         align="r")
 
         # create the EvTables
@@ -103,22 +102,7 @@ class CmdScore(Command):
         
         # add the tables to the proper ids in the form
         form.map(tables={"A": tableA })
-
         self.msg(str(form))
-        '''
-        table1 = evtable.EvTable(target.name, "", target.permissions)
-        table1.add_row(target.traits.hp.name, target.traits.hp.current, target.stats.str.name, target.stats.str.value)
-        table1.add_row(target.traits.lf.name, target.traits.lf.current, target.stats.int.name, target.stats.int.value)
-        table1.add_row("", "", target.stats.dex.name, target.stats.dex.value)
-        table1.reformat_column(0, width=15)
-        table1.reformat_column(1, align="r")
-        table1.reformat_column(2, width=15)
-        table1.reformat_column(3, align="r")
-
-        table2 = evtable.EvTable()
-        self.msg(str(table1))
-        '''
-
 class MyCmdSet(CmdSet):
 
     def at_cmdset_creation(self):

@@ -2,21 +2,17 @@ FORMCHAR = "x"
 TABLECHAR = "c"
 
 FORM = '''
-.----------------------------------------------.
-|                                              |
-|  Player: xxxxx1xxxxx    Account: xxxxx2xxxx  |
-|    Race: xxxxx3xxxxx      Trust: xxxxx4xxxx  |
-|                                              |
- >------------------------------------------------------------------.
+.---------------------.                       .---------------------.
+| Player: xxxxx1xxxxx |                       | Account: xxxxx2xxxx |
+| Race  : xxxxx3xxxxx |                       | Trust  : xxxxx4xxxx |
+ >-----------------------------------------------------------------<
 |           TRAITS           |               STATS                  |
 | ~~~~~~~~~~~~~~~~~~~~~~~~~~ | ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ |
-| Level:              xx5xx  | cccccccccccccccccccccccccccccccccccc |
-| HP:               x6x/x7x  | cccccccccccccccccccccccccccccccccccc |
-| LF:     xxxxxxxx8xxxxxxxx  | ccccccccccccccccccAccccccccccccccccc |
-| LFbase: xxxxxxxx9xxxxxxxx  | cccccccccccccccccccccccccccccccccccc |
+| Level:               xx5xx | cccccccccccccccccccccccccccccccccccc |
+| LF:      xxxxxxxx6xxxxxxxx | cccccccccccccccccccccccccccccccccccc |
+| LFbase:  xxxxxxxx7xxxxxxxx | ccccccccccccccccccAccccccccccccccccc |
+| Limit:           xxxx/xxxx | cccccccccccccccccccccccccccccccccccc |
 |                            | cccccccccccccccccccccccccccccccccccc |
-|                            | ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ |
-|                            |          LIMIT: x10x/x11x            |
 ---------------------------------------------------------------------
 '''
 
